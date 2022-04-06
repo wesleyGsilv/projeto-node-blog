@@ -1,0 +1,39 @@
+<div id="edir-category">
+    <div class="container">
+        <h1>Editar Categoria:</h1>
+        <div class="card">
+            <div class="card-body">
+                <form action="/admin/categoria/edit" method="post">
+                    <input type="hidden" name="id" value="{{categoria._id}}">
+                    <label for="nome">Name:*</label>
+                    <input type="text"  id="nome-categoria"  name="nome" placeholder="Category Name" class="form-control" value="{{categoria.nome}}">
+                    <label class="slug">Slug*</label>
+                    <input type="text" id="slug" name="slug" placeholder="Category Slug" class="form-control" value="{{categoria.slug}}">
+                    <button type="submit" class="btn btn-success categoria mt-4">Editar Categoria</button> 
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    String.prototype.slugify = ( separator = "-" ) =>{
+        return this
+        .toString()
+        .normalize('NFD')                   // split an accented letter in the base letter and the acent
+        .replace(/[\u0300-\u036f]/g, '')   // remove all previously split accents
+        .toLowerCase()
+        .replace(/[^a-z0-9 -]/g, '')   // remove all chars not letters, numbers and spaces (to be replaced)
+        .trim()
+        .replace( /\s+/g, separator );
+    };
+
+    const nome = document.querySelector("#nome-categoria")
+    nome.addEventListener('blur', e=>{
+        let valor = nome.value;
+        if(valor){
+            document.querySelector("#slug").value = valor.slugify() 
+        }
+    }, true)
+</script>

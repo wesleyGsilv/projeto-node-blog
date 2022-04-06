@@ -1,0 +1,57 @@
+<div id="admin-add-new-post">
+        {{#each erros}}
+            <div class="alert alert-danger">
+                <p>{{texto}}</p>
+            </div>
+            {{else}}
+        {{/each}}
+    <div class="container">
+        <h1>New Post</h1>
+        <div class="card">
+            <div class="card-body">
+                <form action="/admin/post/nova" method="POST">
+                    <label for="img" class="title">imagem</label>
+                    <input type="text" id="img-post" name="img" placeholder="Url image" class="form-control">
+                    <label for="titulo" class="title">Titulo:*</label>
+                    <input type="text" id="nome-post" name="titulo" placeholder="Post Name" class="form-control">
+                    <label for="slug" class="title">Slug*</label>
+                    <input type="text" id="slug" name="slug" placeholder="Post Slug" class="form-control">
+                    <label for="descricao" class="title">Descrição*</label>
+                    <input type="text" id="descricao" name="descricao" placeholder="Post content" class="form-control">
+                    <label for="conteudo" class="title">Conteúdo*</label>
+                    <textarea name="conteudo"class="form-control" ></textarea>
+                    <label for="categoria" class="title">Selecione uma Categoria</label>
+                    <select name="categoria" class="form-control">
+                        {{#each categorias}}
+                            <option value="{{_id}}">{{nome}}</option>
+                        {{else}}
+                            <option value="0">Nemuma categoria Registrada</option>
+                        {{/each}}
+                    </select>
+                    <button type="submit" class="btn btn-success categoria">Create Post</button> 
+                </form>
+            </div>
+        </div>
+        <script>
+
+            String.prototype.slugify = function( separator = "-" ){
+                return this
+                .toString()
+                .normalize('NFD')                   // split an accented letter in the base letter and the acent
+                .replace(/[\u0300-\u036f]/g, '')   // remove all previously split accents
+                .toLowerCase()
+                .replace(/[^a-z0-9 -]/g, '')   // remove all chars not letters, numbers and spaces (to be replaced)
+                .trim()
+                .replace( /\s+/g, separator );
+            };
+
+            const nome = document.querySelector("#nome-post")
+            nome.addEventListener('blur', e=>{
+                let valor = nome.value;
+                if(valor){
+                    document.querySelector("#slug").value = valor.slugify() 
+                }
+            }, true)
+        </script>
+    </div>
+</div>

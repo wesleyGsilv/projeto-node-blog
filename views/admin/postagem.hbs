@@ -1,0 +1,42 @@
+<div id="admin-post">
+    <div class="container">
+        <h2>Lista de Postagens</h2>
+        <a href="/admin/post/add" class="btn btn-success buttonadd-category">Novo Post</a>
+         {{#each postagens}}
+            <div class="card mt-4">
+                <div class="card-body  content-post">
+                    <img src="{{img}}">
+                    <div id="post-content">
+                        <h3>{{titulo}}</h3>
+                        <small>Slug: {{slug}}</small>
+                        
+                        <p><span>Descrição:</span> {{descricao}}</p>
+                        <small>Categoria: {{categoria.nome}}</small>
+                        <br>
+                        <small>Data: {{date}}</small>
+                        <div class="buttons-category">
+                            <a href="/admin/post/edit/{{_id}}" class="btn btn-success buttonadd-category">Editar</a>
+                            <form action="/admin/post/deletar" method="post">
+                                <input type="hidden" name="id" value="{{_id}}">
+                                <button type="submit" class="btn btn-danger buttonadd-category deletar" onclick="deletar()">Delete Post</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{else}}
+                <div class="card mt-4 off-categori">
+                    <div class="card-body ">
+                        <h4>Nenhum Post Registrado!</h4>
+                    </div>
+                </div>
+            {{/each}}
+    </div>
+</div>
+
+<script>
+    function deletar() {
+      const delet =  document.querySelector(".deletar")
+      delet.alert("teste")
+    }
+</script>

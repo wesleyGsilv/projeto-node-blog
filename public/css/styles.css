@@ -1,0 +1,66 @@
+#global .alert-success {
+    font-family: Arial;
+    padding: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+#admin-add-new-categori input {margin-bottom: 20px;}
+#admin-add-new-categori label {margin-bottom: 15px;}
+#admin-add-new-categori h1 {padding-bottom: 20px;}
+
+#admin-add-new-categori .alert{ margin-bottom: 0 !important; margin-top: 20px;}
+#admin-add-new-categori #slug {text-transform: lowercase;}
+
+#admin-categori{padding-bottom: 40px;}
+.buttonadd-category {margin-top: 20px;}
+
+#admin-categori .off-categori{ background: rebeccapurple; color: white;}
+#admin-categori .off-categori h4{letter-spacing: 2px;}
+
+#edir-category .form-control {margin-top: 20px !important;}
+
+#edir-category .slug {padding-top: 20px;}
+
+.buttons-category {display: flex; align-items: center; flex-wrap: wrap; gap: 10px;}
+#admin-add-new-post .title {padding: 20px 0;}
+#admin-add-new-post button {margin: 20px 0 10px;}
+
+.content-post{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+#admin-post img{
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    max-width: 100%;
+}
+
+#post-content{
+    width: 66.66%;
+}
+
+#admin-post h3{
+    font-family: Arial;
+    margin-top: 20px;
+}
+
+#admin-post small, #admin-post span {
+    font-family: Arial;
+    font-weight: bold;
+}
+
+#admin-post p{
+    font-family: Arial;
+    color: black;
+    font-size: 18px;
+    width: 100%;
+    max-width: 900px;
+    line-height: 1.5;
+    margin-top: 20px;
+}

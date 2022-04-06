@@ -1,0 +1,31 @@
+<div id="edit-post">
+    <div class="container">
+            <h2>Editar Post</h2>
+            <div class="card">
+            <div class="card-body">
+                <form action="/admin/post/edit" method="POST">
+                    <input type="hidden" value="{{post._id}}" name="id">
+                    <label for="img" class="title">imagem</label>
+                    <input type="text" id="img-post" name="img" placeholder="Url image" class="form-control" value="{{post.img}}">
+                    <label for="titulo" class="title">Titulo:*</label>
+                    <input type="text" id="nome-post" name="titulo" placeholder="Post Name" class="form-control" value="{{post.titulo}}">
+                    <label for="slug" class="title">Slug*</label>
+                    <input type="text" id="slug" name="slug" placeholder="Post Slug" class="form-control" value="{{post.slug}}">
+                    <label for="descricao" class="title">Descrição*</label>
+                    <input type="text" id="descricao" name="descricao" placeholder="Post content" class="form-control" value="{{post.descricao}}">
+                    <label for="conteudo" class="title">Conteúdo*</label>
+                    <textarea name="conteudo"class="form-control"  value="">{{post.conteudo}}</textarea>
+                    <label for="categoria" class="title">Selecione uma Categoria</label>
+                    <select name="categoria" class="form-control">
+                        {{#each categorias}}
+                            <option value="{{_id}}">{{nome}}</option>
+                        {{else}}
+                            <option value="0">Nemuma categoria Registrada</option>
+                        {{/each}}
+                    </select>
+                    <button type="submit" class="btn btn-success categoria">Editar Post</button> 
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
