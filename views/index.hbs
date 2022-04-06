@@ -1,0 +1,35 @@
+{{>_menu-page}}
+<div id="home-pege" class="mt-4">
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-4">Bem vindo</h1>
+            <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem repellat ipsum, modi quasi perspiciatis odio</p>
+            <hr class="-my4">
+
+            <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae repellat culpa quaerat vel non, iusto sed perferendis nemo sapiente! Voluptas, nobis vel! Nam iure velit deleniti consectetur ullam doloribus atque.</p>
+
+            <a class="btn btn-primary btn-lg" href="#" role="button">Crie uma conta</a>
+
+        </div>
+
+        <h2>Postagems Recentes</h2>
+        <div class="row-grid">
+            {{#each postagens}}
+                <div class="card mt-4 col-1of3">
+                    <div class="card-body ">
+                        <img src="{{img}}">
+                        <h3>{{titulo}}</h3>
+                        <p>{{descricao}}</p>
+                        <small>{{date}}</small>
+                    </div>
+                </div>
+                {{else}}
+                <div class="card mt-4 off-categori">
+                    <div class="card-body ">
+                        <h4>Nenhuma Post Registrado!</h4>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</div>

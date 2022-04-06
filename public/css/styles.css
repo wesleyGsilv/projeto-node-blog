@@ -64,3 +64,29 @@
     line-height: 1.5;
     margin-top: 20px;
 }
+
+.jumbotron {
+    background: rgba(0, 79, 139, 0.09);
+    width: 100%;
+    padding: 40px 20px;
+    border-radius: 10px;
+}
+
+.row-grid{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.col-1of3 {
+    width: 33.33%;
+}
+
+#home-pege .row-grid img{
+    max-width: 100%;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin: 20px auto;
+}

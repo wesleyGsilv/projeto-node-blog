@@ -25,6 +25,12 @@ router.get('/categoria', (req, res) => {
     
 })
 
+router.get('/api', (req, res) => {
+    Post.find().sort({date: 'desc'}).then(post =>{ 
+        res.json({post: post})
+    })
+})
+
 router.get('/categoria/add', (req, res) => {
     res.render("admin/addcategoria")
 })
@@ -148,6 +154,7 @@ router.get('/post/add', (req, res) => {
     })
 })
 
+
 router.post('/post/nova', (req, res) => {
     //Validaçâo dos campos do formulario
     
@@ -230,6 +237,7 @@ router.get("/post/edit/:id", (req, res) => {
     })
     
 })
+
 
 router.post("/post/edit", (req, res) =>{
     var erros = []

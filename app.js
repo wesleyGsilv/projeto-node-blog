@@ -9,6 +9,8 @@ const path = require('path')
 const mongoose = require('mongoose')
 const session = require("express-session")
 const flash = require("connect-flash")
+require("./models/Post")
+const postagem = mongoose.model("postagens")
 
 //Configuraçoes
 
@@ -48,13 +50,26 @@ app.use(express.static(path.join(__dirname, "public")));
 //Mongose
 mongoose.Promise = global.Promise;
 mongoose.connect("mongodb://localhost/blogapp").then(() =>{
-    console.log("Servidor conectado")
+    console.log("Banco de Dados conectado")
 }).catch((erro) =>{
-    console.log("Servidor com erro: " + erro)
+    console.log("Erro ao conectar ao DB: " + erro)
 })
 
 //Rotas
 // O  app.use('/admin', admin) esta recebendo as configuraços do arquivo admin.js
+app.get("/", (req, res) =>{
+    postagem.find().populate("categoria").sort({date: 'desc'}).then((postagens) =>{
+        res.render('index', {postagens: postagens})
+    }).catch((erro)=>{
+        req.flash("error_msg", "Houve um erro")
+        res.redirect("/404")
+    })
+    
+})
+
+app.get("/404", (req, res) =>{
+    res.send("Erro")
+})
 app.use('/admin', admin)
 //Outros
 
